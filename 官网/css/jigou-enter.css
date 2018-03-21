@@ -1,0 +1,468 @@
+body,div,ul,li,a,img {margin: 0;padding: 0;}
+ul,li{list-style: none;}
+a {text-decoration: none;}
+img{
+    max-width: 100%;
+}
+body{
+    width:100%;
+    box-sizing: border-box;
+    font-family: 微软雅黑;
+    overflow-x: hidden;
+}
+@media screen and (min-width:300px) and (max-width:750px){
+    /**机构详情***/
+    body{
+        box-sizing: border-box;
+    }
+    *{
+        box-sizing: border-box;
+    }
+    .webContent{
+        display: none;
+        font-size: 8px;
+    }
+    .appContent{
+        width:100%;
+        height:667px;
+        background: #eee;
+    }
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    img{
+        vertical-align: top;
+    }
+    li{
+        list-style: none;
+    }
+    .app-header{
+        width:100%;
+        height:40px;
+        font-size: 16px;
+        position: relative;
+        text-align: center;
+        background: #fff;
+    }
+    .app-back{
+        position: absolute;
+        width: 50px;
+        height:40px;
+        line-height: 40px;
+        padding-left: 7px;
+        background: url(../img/app-back.png) no-repeat 0 12px;
+        background-size:8px;
+        top:0;
+        left:10px;
+    }
+    .app-jigou-detial{
+        width:100%;
+        background: #fff;
+        margin-top: 10px;
+        padding: 15px;
+        box-sizing: border-box;
+        color: #333;
+        position: relative;
+    }
+    .app-title{
+        width:100%;
+        height:40px;
+        line-height: 40px;
+        font-size: 18px;
+    }
+    .app-jigou-name{
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .app-detial-list{
+        margin-top:10px;
+    }
+    .organization-summary{
+        line-height: 30px;
+        text-align: justify;
+    }
+    .consult-now{
+        width:100px;
+        height:35px;
+        line-height: 35px;
+        text-align: center;
+        background: #d04424;
+        color: #fff;
+        font-size: 15px;
+        border-radius: 5px;
+        position: absolute;
+        top:15px;
+        right:20px;
+    }
+    .app-jigou-img{
+        box-sizing: border-box;
+        padding: 10px 0 0 20px;
+        margin-bottom: 10px;
+    }
+    .app-jigou-message{
+        background: #fff;
+        width:88%;
+        height: 137px;
+        margin:0 auto;
+    }
+    .app-jigou-message{
+        margin-bottom: 10px;
+    }
+    #app-upload-img{
+        display: none;
+    }
+    .app-jigou-message textarea{
+        width:100%;
+        border:none;
+        outline: none;
+        font-size: 14px;
+        padding: 5px 0 0 10px;
+        box-sizing: border-box;
+    }
+    #app-camera{
+        width:60px;
+        height:60px;
+        margin: 0 12px 12px 12px;
+    }
+    .sendMessage-box{
+        width:88%;
+        margin: 0 auto;
+    }
+    .sendMessage{
+        width:100px;
+        height:35px;
+        line-height: 35px;
+        text-align: center;
+        background: #069e51;
+        color: #fff;
+        font-size: 15px;
+        border-radius: 5px;
+        float: right;
+    }
+    /**申请机构入驻***/
+    .app-enter-header{
+        width:100%;
+        background: #fff;
+        margin-top: 10px;
+    }
+    .app-enter-header>div{
+        position: relative;
+        width:100%;
+        height:40px;
+    }
+    .app-enter-header>div:not(:last-child){
+        border-bottom: solid 1px #ddd;
+    }
+    .app-enter-header>div>div:first-child{
+        height:40px;
+        line-height: 40px;
+    }
+    .app-enter-header-name>div:first-child{
+        float: left;
+        margin-left: 10px;
+    }
+    .app-choose{
+        position: absolute;
+        top:8px;
+        right:30px;
+        color: #999;
+    }
+    .app-rightArrow {
+        width:6px;
+        float: right;
+        position: absolute;
+        top:14px;
+        right:15px;
+    }
+    #app-detail-address textarea{
+        width:100%;
+        outline: none;
+        border:none;
+        padding: 8px;
+        font-size: 14px;
+        color:#999;
+    }
+    #app-detail-address{
+        height:65px;
+    }
+    .app-jigou-jianjie{
+        width:100%;
+        height:50px;
+        line-height: 50px;
+        padding-left: 10px;
+    }
+    .app-jigou-apply-message{
+        width:100%;
+    }
+    .app-submit{
+        width:100%;
+        height:50px;
+        line-height: 50px;
+        background: #d04424;
+        font-size: 18px;
+        color: #fff;
+        text-align: center;
+        margin-top: 20px;
+
+    }
+    /***遮罩层****/
+    .shade{
+        width:100%;
+        height:667px;
+        position: absolute;
+        top:0;
+        left:0;
+        background: #000;
+        opacity: 0.4;
+        z-index: 1002;
+        display: none;
+    }
+    .pop-menu{
+        width:280px;
+        height:186px;
+        background: #fff;
+        position: absolute;
+        top:50%;
+        left:50%;
+        margin: -246px 0 0 -140px;
+        border-radius: 20px;
+        z-index: 1003;
+        padding-top: 40px;
+        text-align: center;
+        display: none;
+    }
+    .pop-menu>div{
+        width:100%;
+        text-align: center;
+    }
+    .pop-input{
+        width:200px;
+        height:28px;
+        background: #fff;
+        outline: none;
+        font-size: 16px;
+    }
+    .pop-prompt{
+        margin-bottom: 30px;
+    }
+    .pop-btn{
+        margin-top: 26px;
+        height:40px;
+        border-top: solid 1px #ddd;
+    }
+    .pop-btn>div{
+        width:50%;
+        height:40px;
+        line-height: 40px;
+        float: left;
+        cursor: pointer;
+    }
+    .pop-btn>div:first-child{
+        border-right: solid 1px #ddd;
+    }
+    .pop-ensure{
+        color:#3f5fe4;
+    }
+    .select-area{
+        display: none;
+    }
+}
+@media screen and (min-width:1024px){
+    .appContent{
+        display: none;
+    }
+    .container{
+        width:63%;
+        margin:0 auto;
+    }
+    .current-location{
+        color:#999;
+        margin-top: 33px;
+    }
+    .wannerEnter{
+        width:150px;
+        height:44px;
+        background: #ffa000 url(../img/enter-icon.png) 18px 12px no-repeat;
+        border: none;
+        color: #fff;
+        font-size: 18px;
+        padding-left: 28px;
+        margin-left: 30px;
+    }
+    .list-box{
+        width:100%;
+        margin-top:30px;
+    }
+    .jigou-list{
+        width:82%;
+        margin:0 auto;
+    }
+    .jigou-list li{
+        width:231px;
+        height:310px;
+        list-style: none;
+        float: left;
+        position: relative;
+        margin:0 10px 20px 0;
+        border:solid 2px #eee;
+    }
+    .jigou-list li:hover{
+        border:solid 2px #d44e48;
+    }
+    .check-detail{
+        width:100%;
+        height:40px;
+        line-height: 40px;
+        background: #d44e48;
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+        position: absolute;
+        top:193px;
+        left: 0;
+        display: none;
+        cursor: pointer;
+    }
+    .jigou-outside-introduction{
+        width:100%;
+    }
+    .jigou-outside-introduction div:first-child{
+        width:100%;
+        font-size: 14px;
+        margin: 5px 0 5px 0;
+    }
+    .jigou-outside-introduction div:last-child{
+        width:100%;
+        font-size: 12px;
+        color: #999;
+    }
+    form{
+        width:100%;
+    }
+    .picture{
+        width:200px;
+        height:250px;
+        border:solid 1px #ddd;
+        text-align: center;
+        float: left;
+        margin:140px 100px 0 0;
+    }
+    .picture button{
+        width:120px;
+        height:40px;
+        line-height: 40px;
+        font-size: 16px;
+        margin:90px 0 10px 0;
+        cursor: pointer;
+    }
+    .picture span{
+        font-size: 15px;
+        color:#999;
+    }
+    .content{
+        float: left;
+    }
+    .content>h1{
+        text-align: center;
+        margin-bottom: 74px;
+    }
+    .content>div{
+        margin-top:20px;
+    }
+    .content>div>span{
+        font-size: 22px;
+        color: #414141;
+    }
+    .content>div>input{
+        width:390px;
+        height:38px;
+        margin-left:20px;
+        font-size: 18px;
+        color:#333;
+        outline: none;
+    }
+    .content>div>textarea{
+        font-size: 22px;
+        color:#333;
+        margin-left:20px;
+        width:390px;
+        outline: none;
+    }
+    .content>div>select{
+        width:120px;
+        height:37px;
+        font-size: 16px;
+        color:#333;
+        outline: none;
+    }
+    .content>div>select:first-child{
+        margin-left:20px;
+    }
+    .firstSelect{
+        margin-left:20px;
+    }
+    .span-address{
+        display: block;
+        float: left;
+    }
+    #jigou-picture{
+        width:290px;
+    }
+    #limit{
+        margin:5px 0 0 120px;
+        color:#999;
+    }
+    #upload{
+        width:95px;
+        height:40px;
+        line-height: 40px;
+        text-align: center;
+        background: #ffa000;
+        color:#fff;
+        border: none;
+        cursor: pointer;
+    }
+    .submit{
+        width:160px;
+        height:50px;
+        line-height: 50px;
+        text-align: center;
+        color:#fff;
+        background: #e74642;
+        margin:0 auto;
+        cursor: pointer;
+    }
+    .jigou-name{
+        font-size:30px;
+        color:#999;
+        margin-top:50px;
+    }
+    .jigou-introduction{
+        font-size:18px;
+        color:#4e4e4e;
+        margin-top:30px;
+        text-align: justify;
+    }
+    .jigou-detail{
+        margin-top:50px;
+    }
+    .jigou-coverImg,.jigou-info{
+        float: left;
+    }
+    .jigou-coverImg{
+        width:300px;
+        height:370px;
+        margin-right: 120px;
+        border: solid 1px #999;
+    }
+    .jigou-info>div{
+        margin-bottom: 20px;
+    }
+    .jigou-info>div>span{
+        font-size:18px;
+        color:#4e4e4e;
+    }
+}

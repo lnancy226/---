@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的店铺</title>
+    <link rel="stylesheet" href="./css/myShop.css">
+
+    <style>
+        .exhibition .nav a.active {
+            color: #d04424;
+            position: relative;
+            top: -4px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <header>
+        <img src="./images/red-logo.png" alt="">
+        <a class="logout" href="javascript:;">退出登录</a>
+    </header>
+</div>
+<div class="navbar">
+    <div class="container">
+        <ul>
+            <li>
+                <a class="active" href="./myShop.html">我的店铺</a>
+            </li>
+            <li>
+                <a href="./myGoods.html">我的宝贝</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="container">
+    <div id="box">
+        <ul class="banner">
+        </ul>
+        <ol id="nav">
+        </ol>
+        <a href="JavaScript:;" id="left">&lt;</a>
+        <a href="JavaScript:;" id="right">&gt;</a>
+    </div>
+</div>
+
+<div class="edit-shop">
+    <div class="content container">
+        <div class="shopContent">
+
+        </div>
+        <div class="edit">
+            <a href="javascript:;">编辑店铺</a>
+        </div>
+    </div>
+</div>
+
+<div class="edit-shopInfo hide" id="edit-shop">
+    <div class="content container">
+        <form action="">
+            <div class="edit-l">
+                <ul>
+                    <li> 店铺名称：<input type="text" name="shopName" id="shopName"></li>
+                    <li class="address">所在古玩城（地址）：
+                        <select class="province">
+                            <!--<option value="0">请选择</option>-->
+                        </select>
+                        <select class="city">
+                            <!--<option value="0">请选择</option>-->
+                        </select>
+                        <select class="district">请选择
+                            <option value="0">请选择</option>
+                        </select>
+                        <input type="text" id="detailAddress" placeholder="详细地址">
+                    </li>
+
+                    <li>楼层：<input type="text" id="floor"></li>
+                    <li>门牌号：<input type="text" id="houseNum"></li>
+                    <li>联系电话：<input type="text" id="tel"></li>
+                </ul>
+            </div>
+            <div class="edit-r">
+                <ul>
+                    <li>店铺性质：
+                        <select id="nature">
+                            <option value="1">古玩城店铺</option>
+                            <option value="2">古玩城柜台</option>
+                            <option value="3">独立店铺</option>
+                        </select></li>
+                    <li>店铺简介：<textarea name="" id="instr" cols="30" rows="10"></textarea>
+                    </li>
+                </ul>
+            </div>
+        </form>
+        <div class="editShopInfo" id="submitShopInfo">
+            <a href="javascript:;">提交</a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="exhibition">
+        <div class="title">
+            <div class="title-content">宝贝展厅
+            </div>
+        </div>
+        <div class="main">
+            <div class="nav">
+                <ul>
+                    <li data-goods="0"><a class="active" href="javascript:;">全部宝贝</a><span>/</span></li>
+                    <li data-goods="1"><a href="javascript:;">特价区</a><span>/</span></li>
+                    <li data-goods="2"><a href="javascript:;">精品区</a></li>
+                </ul>
+            </div>
+            <div class="show">
+                <ul id="goodsListBox">
+                </ul>
+            </div>
+            <div class="page">
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>杭州缘之宝网络科技有限公司 版权所有</p>
+        <ul>
+            <li>
+                <a href="javascript:;">寻宝图手机版</a> |
+                <a href="javascript:;">官方网站</a> |
+                <a href="javascript:;">服务协议</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!--轮播图模板-->
+<script type="text/template" id="banner">
+    {{each rooFileList}}
+    <li>
+        <a href="javascript:;">
+            <img src="{{$value.url}}" alt=""/>
+        </a>
+    </li>
+    {{/each}}
+</script>
+<!--轮播图nav模板-->
+<script type="text/template" id="navList">
+    {{each rooFileList}}
+    <li></li>
+    {{/each}}
+</script>
+<!--店铺信息模板-->
+<script type="text/template" id="shopInfo">
+    {{each shopInfoItem}}
+        <div class="edit-l">
+            <ul>
+                <li>店铺名称：{{$value.shopName}}</li>
+                <li>所在古玩城（地址）：{{$value.areaInfo}}</li>
+                <li>楼层：{{$value.shopFloor}}</li>
+                <li>门牌号：{{$value.shopAddress}}</li>
+                <li>联系电话：{{$value.shopTel}}</li>
+            </ul>
+        </div>
+        <div class="edit-r">
+            <ul>
+                <li>店铺性质：{{$value.shopType}}</li>
+                <li>店铺简介：{{$value.remark}}
+                </li>
+            </ul>
+        </div>
+    {{/each}}
+</script>
+
+<!--宝贝展厅模板-->
+<script type="text/template" id="myGoodsList">
+    {{each data}}
+    <li class="item">
+        <div class="pic">
+            <img src="{{$value.goodsFile.url}}" alt="">
+        </div>
+        <div class="txt">
+            <p><span class="name">{{$value.goodsName}}</span><span>{{$value.material}}</span></p>
+            <p>市场参考价：<span class="price">{{$value.goodsMarketprice}}元</span></p>
+        </div>
+        <div class="operate hide">
+            <a class="goodsDetail" href="./goodsDetail.html?goodsId={{$value.id}}">查看详情</a>
+            <a class="editGoods" href="./goodsEdit.html?goodsId={{$value.id}}">编辑</a>
+            <a class="deleGoods" data-goodId="{{$value.id}}" href="javascript:;">删除</a>
+        </div>
+    </li>
+    {{/each}}
+</script>
+<!-- 分页模板 -->
+<script type="text/template" id="page">
+    <div class="prev"><a href="?pageNum=<%= pageNum-1 %>">上一页</a></div>
+    <ul class="pageNum">
+    <% for(var i=1; i<=pageLen; i++) { %>
+    <li <% if(i == pageNum) { %> class="active" <% }%>><a href="?pageNum=<%= i %>"><%= i %></a></li>
+    <% } %>
+    </ul>
+    <div class="next"><a href="?pageNum=<%= pageNum-0+1 %>">下一页</a></div>
+</script>
+<!--全局-->
+<script src="./js/jquery.min.js"></script>
+<script src="./js/jquery.cookie.js"></script>
+<script src="./js/template-web.js"></script>
+<script src="./js/logout.js"></script>
+<!--本页面-->
+<script src="./js/banner.js"></script>
+<script src="./js/myShop.js"></script>
+
+
+</body>
+
+</html>

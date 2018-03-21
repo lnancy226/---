@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=3.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=yes"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>专家介绍</title>
+    <link rel="stylesheet" href="./css/mui.min.css">
+    <link rel="stylesheet" href="./css/jigou-enter.min.css">
+    <link rel="stylesheet" href="./css/detail.min.css">
+</head>
+<body>
+<div class="appContent">
+    <header id="header" class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"><span class="back">返回</span></a>
+        <a class="mui-pull-left" id="close">关闭</a>
+        <h1 class="mui-title">专家介绍</h1>
+    </header>
+    <div class="mui-content">
+        <div class="expDetail">
+
+        </div>
+        <div class="sendMessage-box">
+            <div class="sendMessage">聊一聊</div>
+            <br style="clear: both">
+        </div>
+    </div>
+</div>
+
+<script type="text/template" id="expDetail">
+    <div class="app-jigou-detial">
+        <div class="consult-now"><a href="#">立即咨询</a></div>
+        <div class="app-jigou-name">{{data.name}}</div>
+        <div class="app-detial-list"><span>专家类型:</span><span class="organization">&nbsp;{{data.typeName}}专家</span></div>
+        <div class="app-detial-list"><span>任职机构:</span><span class="contact-man">&nbsp;{{data.organ}}</span></div>
+        <div class="app-detial-list"><span>联系方式:</span><span class="contact-way">&nbsp;{{data.phone}}</span></div>
+        <div class="app-detial-list"><span>所在地:</span><span class="detail-address">&nbsp;{{data.addressInfo}}</span></div>
+        <div class="app-detial-list"><span>专家简介:</span>
+            <span class="organization-summary">&nbsp;{{data.remark}}</span>
+        </div>
+    </div>
+</script>
+
+<script src="./js/jquery.min.js"></script>
+<script src="./js/jquery.cookie.min.js"></script>
+<script src="./js/mui.min.js"></script>
+<script src="./js/template-web.min.js"></script>
+
+<script src="./src/experts-detail.min.js"></script>
+<script src="./src/hybrid.min.js"></script>
+</body>
+</html>

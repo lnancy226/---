@@ -1,0 +1,89 @@
+//@import "bootstrap";
+@import "setting";
+
+.reg-bg {
+  position: absolute;
+  left: 100px;
+  z-index: -1;
+}
+
+#apply {
+  //position: absolute;
+  //top: 140px;
+  //right: 0;
+  float: right;
+  width: 600px;
+  margin-top: 125px;
+
+  //.form-content {
+  //  width: 840px;
+  //}
+
+  h1 {
+    margin-left: 40px;
+    font-size: 40px;
+    font-weight: 500;
+  }
+
+  .container {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    border: 1px solid @border-aaa;
+    border-radius: 10px;
+    margin-top: 90px;
+
+    p {
+      font-size: 30px;
+      margin: 60px 0 0 88px;
+    }
+
+    .item {
+      width: 100%;
+      margin-top: 100px;
+      padding: 0 150px;
+      //overflow: hidden;
+
+      > div {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        border: 2px solid @mainColor;
+        border-radius: 50%;
+        display: inline-block;
+        cursor: pointer;
+      }
+
+      p {
+        position: absolute;
+        right: 24%;
+        bottom: -56px;
+        margin: 0;
+      }
+    }
+
+    .personal {
+      background: url("../images/personal-before.png") no-repeat 50% 50%;
+    }
+
+    .company {
+      margin-left: 132px;
+      background: url("../images/company-before.png") no-repeat 50% 50%;
+    }
+
+    .submit {
+      position: absolute;
+      bottom: 56px;
+      left: 50%;
+      margin-left: -100px;
+      width: 200px;
+      height: 60px;
+      border-radius: 5px;
+      background-color: @mainColor;
+      color: @font-white;
+      font-size: 28px;
+      cursor: pointer;
+    }
+  }
+}
+

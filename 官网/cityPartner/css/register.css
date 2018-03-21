@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.my-container {
+  width: 1003px;
+  margin: 0 auto;
+}
+input,
+button,
+select,
+textarea {
+  border: none;
+  outline: none;
+}
+a {
+  text-decoration: none;
+}
+.reg-bg {
+  position: absolute;
+  left: 100px;
+  z-index: -1;
+}
+#apply {
+  float: right;
+  width: 600px;
+  margin-top: 125px;
+}
+#apply h1 {
+  margin-left: 40px;
+  font-size: 40px;
+  font-weight: 500;
+}
+#apply .container {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  border: 1px solid #aaaaaa;
+  border-radius: 10px;
+  margin-top: 90px;
+}
+#apply .container p {
+  font-size: 30px;
+  margin: 60px 0 0 88px;
+}
+#apply .container .item {
+  width: 100%;
+  margin-top: 100px;
+  padding: 0 150px;
+}
+#apply .container .item > div {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border: 2px solid #4c7bc9;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+#apply .container .item p {
+  position: absolute;
+  right: 24%;
+  bottom: -56px;
+  margin: 0;
+}
+#apply .container .personal {
+  background: url("../images/personal-before.png") no-repeat 50% 50%;
+}
+#apply .container .company {
+  margin-left: 132px;
+  background: url("../images/company-before.png") no-repeat 50% 50%;
+}
+#apply .container .submit {
+  position: absolute;
+  bottom: 56px;
+  left: 50%;
+  margin-left: -100px;
+  width: 200px;
+  height: 60px;
+  border-radius: 5px;
+  background-color: #4c7bc9;
+  color: #ffffff;
+  font-size: 28px;
+  cursor: pointer;
+}

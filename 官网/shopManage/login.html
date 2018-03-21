@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录</title>
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+
+<body>
+    <div id="login">
+        <!--<img class="bg" src="./images/login-bg.png" alt="">-->
+        <div class="container">
+            <div class="logo">
+                <img src="./images/red-logo.png" alt="">
+            </div>
+            <div class="main">
+                <div class="erweima">
+                    <img src="./images/erweima.png" alt="">
+                    <p>扫一扫下载APP</p>
+                </div>
+                <div class="login">
+                    <!-- <form action="#" autocomplete="off"> -->
+                    <h2>登录</h2>
+                    <input type="tel" name="phone" id="phone" placeholder="请输入手机号">
+                    <input type="text" name="smscode" id="smscode" placeholder="请输入验证码">
+                    <button class="getSmscode">获取验证码</button>
+                    <p>未注册？请下载App</p>
+                    <a href="#" class="submit">登录</a>
+                    <a href="../index.html" class="back">回到首页</a>
+                    <!-- </form> -->
+                </div>
+            </div>
+            <div class="footer">
+                <p>杭州缘之宝网络科技有限公司 版权所有</p>
+                <ul>
+                    <li>
+                        <a href="#">寻宝图手机版</a> |
+                        <a href="#">官方网站</a> |
+                        <a href="#">服务协议</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/jquery.cookie.js"></script>
+    <script>
+        $(function() {
+            $('button').on('click', function() {
+                var iphone = $('#phone').val();
+                var smsType = 2;
+
+                var getsmscode = JSON.stringify({
+                    phone: iphone,
+                    smsType: smsType
+                });
+                console.log("输出测试");
+                console.log(iphone, smsType);
+                $.ajax({
+                    url: 'http://116.62.131.70:8080/roo-mobile-web/app/smscode',
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    data: getsmscode,
+                    success: function(info) {
+                        console.log(info, "发送验证码");
+                        alert("验证码已发送");
+                    }
+                });
+            })
+
+            $(".submit").on("click", function() {
+                var iphone = $('#phone').val();
+                var smscode = $("#smscode").val();
+                var params = JSON.stringify({
+                    phone: iphone,
+                    smscode: smscode
+                });
+                console.log(iphone, smscode);
+                $.ajax({
+                    // async: false,
+                    url: 'http://116.62.131.70:8080/roo-mobile-web/app/verifySmscode',
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    data: params,
+                    success: function(info) {
+                            // console.log(info, "验证码信息");
+                            // if (info.httpCode == 200) {
+                            //     console.log(info, "验证码正确！");
+                            loginShop();
+                            // };
+                        }
+                        // error: function(info) {
+                        //     console.log(info, "验证码错误！");
+                        // }
+                });
+
+            })
+
+            function loginShop() {
+                var iphone = $('#phone').val();
+                var smscode = $("#smscode").val();
+                var params = JSON.stringify({
+                    phone: iphone,
+                    smscode: smscode
+                });
+
+                $.ajax({
+                    // async: false,
+                    url: 'http://116.62.131.70:8080/roo-mobile-web/app/smslogin',
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    data: params,
+                    success: function(info) {
+                        console.log(info, "登录信息");
+                        if (info.httpCode == 200) {
+                            console.log(info, "验证码正确，登录成功！");
+                            var Authorization = info.token;
+                            console.log(Authorization, "Authorization token");
+                            $.cookie("Authorization", Authorization);
+                            console.log($.cookie("Authorization"), "cookie");
+                             window.location.href = "myShop.html";
+                        };
+
+                        if (info.httpCode == 409) {
+                            console.log(info, "验证码错误！");
+                            // loginShop();
+                            $("#smscode").val("");
+                        };
+
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

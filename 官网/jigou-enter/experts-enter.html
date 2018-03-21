@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>专家入驻</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=3.0,user-scalable=no">
+    <link rel="stylesheet" href="../css/jigou-enter.css">
+</head>
+<body>
+<div class="appContent">
+    <div class="app-header">
+        <div class="app-back">返回</div>
+        <span class="app-title">专家入驻</span>
+    </div>
+    <div class="app-enter-header">
+        <div class="app-enter-header-name">
+            <div>您的姓名</div>
+            <div class="app-rightArrow"><img src="../img/rightArrow.png" alt=""></div>
+            <br style="clear: both">
+        </div>
+        <div class="app-enter-header-name">
+            <div>任职机构</div>
+            <div class="app-rightArrow"><img src="../img/rightArrow.png" alt=""></div>
+            <br style="clear: both">
+        </div>
+    </div>
+    <div class="app-enter-header">
+        <div class="app-enter-header-name">
+            <div>所属类型</div>
+            <div class="app-rightArrow"><img src="../img/rightArrow.png" alt=""></div>
+            <div class="app-choose">请选择</div>
+            <br style="clear: both">
+        </div>
+        <div class="app-enter-header-name">
+            <div>联系方式</div>
+            <div class="app-rightArrow"><img src="../img/rightArrow.png" alt=""></div>
+            <br style="clear: both">
+        </div>
+        <div class="app-enter-header-name">
+            <div>所在地区</div>
+            <div class="app-rightArrow"><img src="../img/rightArrow.png" alt=""></div>
+            <div class="app-choose">请选择</div>
+            <select name="area" class="select-area"></select>
+            <br style="clear: both">
+        </div>
+    </div>
+    <div class="app-jigou-jianjie">专家简介</div>
+    <div class="app-jigou-message app-jigou-apply-message">
+        <textarea name="" id="" cols="30" rows="4" placeholder="请输入您的个人简介"></textarea><br>
+        <input id="app-upload-img" type="file" accept="image/*" capture="camera" multiple>
+        <div id="app-camera"><img src="../img/app-camera-add.png" alt="" style="width: 60px;height:60px;"></div>
+    </div>
+    <div class="app-submit">提交</div>
+    <div class="shade"></div>
+    <div class="pop-menu">
+        <div class="pop-prompt">请填写您的姓名</div>
+        <input class="pop-input" type="text">
+        <div class="pop-btn">
+            <div class="pop-cancel">取消</div>
+            <div class="pop-ensure">确定</div>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery.min.js"></script>
+<script>
+    $(function(){
+        $(".app-choose").click(function(){
+            $(".shade").show();
+            $(".pop-menu").show();
+            $(".select-area").click();
+        });
+        $(".pop-cancel").click(function(){
+            $(".shade").hide();
+            $(".pop-menu").hide();
+        });
+        function popMenu(){
+            $(".shade").hide();
+            $(".pop-menu").hide();
+        }
+        //第一次没有加[0]，点击没有反应，注意获取class时候一个数组，不能给数组添加事件
+        //第三个参数表示是否使用捕获，true表示事件是捕获阶段，false表示事件是冒泡阶段
+        $(".pop-ensure")[0].addEventListener("click",popMenu,false);
+    })
+</script>
+</body>
+</html>

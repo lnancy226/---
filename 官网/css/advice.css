@@ -1,0 +1,94 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    outline: none;
+}
+body{
+    width:100%;
+    height:100%;
+    overflow-x: hidden;
+    margin:0 auto;
+    padding-top: 100px;
+}
+@media screen and (min-width:750px){
+    .content{
+        height:300px;
+    }
+    .container{
+        width:1024px;
+        height:100%;
+        margin: 0 auto;
+    }
+    .content{
+        width:91%;
+    }
+    .contact{
+        width:91%;
+    }
+}
+@media screen and (min-width:300px) and (max-width:750px){
+    body{
+        padding: 20px 5px 0 5px;
+    }
+    .content{
+        height:227px;
+    }
+    .container{
+        width:88%;
+        height:100%;
+        margin: 0 auto;
+    }
+    .content{
+        width:100%;
+    }
+    .contact{
+        width:100%;
+    }
+}
+
+.header{
+    width:100%;
+    height:60px;
+    font-size:26px;
+    border-bottom: 2px solid #cccccc;
+    margin:0 auto;
+}
+.hello{
+    font-size: 20px;
+    color:#ccc;
+    margin-top:20px;
+}
+form{
+    width:100%;
+}
+label{
+    display: block;
+    float: left;
+    font-size: 18px;
+    color: #666;
+    margin-top:20px;
+}
+.content{
+    font-size: 18px;
+    color: #666;
+    margin-top:20px;
+}
+.contact{
+    height:40px;
+    font-size: 18px;
+    color: #666;
+    margin:20px 0 20px 0;
+}
+.submit{
+    width:200px;
+    height:50px;
+    background: #1a65d4;
+    border-radius: 10px;
+    border:none;
+    display: block;
+    color:#fff;
+    font-size: 22px;
+    cursor: pointer;
+    margin: 0 auto;
+}

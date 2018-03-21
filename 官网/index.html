@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=3.0,user-scalable=yes">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <title>官网首页</title>
+
+    <style>
+        .service {
+            position: relative;
+        }
+        #service {
+            position: absolute;
+            top: 70px;
+            left: -30px;
+            width: 150px;
+            padding: 0px 20px 20px;
+            font-size: 18px;
+            /*line-height: 20px;*/
+            border-radius: 0 0 3px 3px;
+            text-align: center;
+           background-color: white;
+            box-shadow: 0 0 30px rgba(0,0,0,.3);
+            display: none;
+        }
+
+        #service li {
+            margin: 0;
+            height: 45px;
+            line-height: 45px;
+        }
+
+        #service li a {
+            text-decoration: none;
+            color: #666;
+
+        }
+
+        #service li a:hover{
+            font-size: 20px;
+            color: #d04424;
+        }
+
+        #service img {
+            position: absolute;
+            left:50%;
+            top:-7px;
+            margin-left: -7px;
+        }
+        @media screen and (max-width:980px){
+            .service {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="head">
+    <div id="nav" class="index-nav">
+        <div id="nav-logo">
+            <img src="img/logo.png" alt="logo">
+        </div>
+        <ul id="nav-right">
+            <li class="active"><a href="index.html">首页</a></li>
+            <li><a href="aboutUs.html">关于我们</a></li>
+            <li><a href="news.html">新闻资讯</a></li>
+            <!--<li><a href="organization.html">机构入驻</a></li>-->
+            <li><a href="contactUs.html">联系我们</a></li>
+            <li class="service">
+                <a href="#">业务管理</a>
+                <div id="service">
+                    <ul >
+                        <li><a href="./cityPartner/login.html">城市合伙人</a></li>
+                        <li><a href="#">机构入驻</a></li>
+                        <li><a href="./shopManage/login.html">店铺管理</a></li>
+                    </ul>
+                    <img src="./img/triangle.png" alt="">
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="head-content">
+        <div class="introduction-box">
+            <div class="introduction">
+                <div class="head-title-1">足不出户逛遍全国收藏市场</div>
+                <div class="head-title-2">真实地图、真实坐标，给您一张真实存在的寻宝图</div>
+            </div>
+            <div class="TD">
+                <img src="img/TD.png" alt="二维码">
+                <div>
+                    <img src="img/Android.png" alt=""><br>
+                    <img src="img/Apple.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="iphone"><img src="img/iphone.png" alt=""></div>
+    </div>
+</div>
+<div class="location">
+    <h1 class="lo-head-1">精确定位，一键导航</h1>
+    <h3 class="lo-head-2">线上预览，线下导航，觉得有漏可捡，咱过去掌掌眼</h3>
+    <div><img class="three-img" src="img/threeIphone.png" alt=""></div>
+</div>
+<div class="map">
+    <h1 class="lo-head-1">跨域寻宝，逛遍全国</h1>
+    <h3 class="lo-head-2">跨地域寻宝不再是问题，寻宝图是一张“大”地图</h3>
+    <div><img class="map-img-1" src="img/iPhone6.png" alt=""><img class="map-img-2" src="img/china-map.png" alt=""></div>
+</div>
+<div class="play">
+    <h1 class="lo-head-1">多种玩法，敬请期待</h1>
+    <h3 class="lo-head-2">聊天室、动态、地摊、附近的人、典当、主题游，想到的想不到的，我们都将满足！</h3>
+    <div><img class="multi-img" src="img/multi-iphone.png" alt=""></div>
+</div>
+<div class="contact">
+    <h1 class="lo-head-1">联系我们</h1>
+    <h3 class="lo-head-2">古玩城信息不准确？店铺信息不准确？有任何情况，马上联系我们！</h3>
+    <ul>
+        <li>
+            <h4>商务合作</h4>
+            <p>我们正在全国范围内寻找商务合作伙伴，如果您也是这个行业的，或者对我们感兴趣，请联系我们。</p>
+            <div class="co-1">商务合作</div>
+        </li>
+        <li>
+            <h4>古玩城资料</h4>
+            <p>找不到您的古玩城？</p>
+            <p>古玩城的资料错误？</p>
+            <p>古玩城的资料不完整？</p>
+            <p>请联系我们完善资料！</p>
+            <div class="co-2"><a href="add.html">新增/完善资料</a></div>
+        </li>
+        <li>
+            <h4>意见建议</h4>
+            <p>您有任何意见建议都可以给我们留言，您的支持与信赖是我们前进的动力！</p>
+            <div class="co-3"><a href="advice.html">填写意见建议</a></div>
+        </li>
+        <li style="position: relative">
+            <h4>客户服务</h4>
+            <p>客服热线：0571-86785152</p>
+            <p>在线客服：2042325748</p>
+            <p id="wei-chat">官方微信：<img src="img/weichat.png" alt="微信"></p>
+            <div id="weichat"><img style="width:120px;" src="img/weichat.jpg" alt=""></div>
+            <p>邮箱：xunmap@xunmap.com</p>
+            <p>时间：周一至周五 9:00-17:00</p>
+        </li>
+    </ul>
+</div>
+<div class="foot">
+    <ul>
+        <li>
+            <p>CONTACT US</p>
+            <div class="line"><img src="img/line.png" alt=""></div>
+            <div class="foot-logo"><img src="img/foot-logo.png" alt=""></div>
+            <p><img src="img/call.png" alt="">&nbsp;&nbsp;&nbsp;客服热线：0571-86785152</p>
+            <p><img src="img/foot-QQ.png" alt="">&nbsp;&nbsp;&nbsp;QQ：2042325748</p>
+            <p><img src="img/email.png" alt="">&nbsp;&nbsp;&nbsp;邮箱：xunmap@xunmap.com</p>
+        </li>
+        <li id="secondLI">
+            <p>ABOUT XunMap</p>
+            <div class="line"><img src="img/line.png" alt=""></div>
+            <div class="foot-text">
+                <div><img src="img/shift.png" alt=""></div>
+                <div>寻宝图是杭州缘之宝网络科技有限公司专门为帮助收藏爱好者寻宝、捡漏、收藏、交友而开发的工具/社交型软件，
+                    它利用了互联网技术来解决收藏过程中的展示、交流、学习及信用等问题，帮助更多的人爱上收藏，学会收藏。</div>
+            </div>
+        </li>
+        <li class="lastLI">
+            <p>PRODUCT</p>
+            <div class="line"><img src="img/line.png" alt=""></div>
+            <div>
+                <div class="f-p">扫<br>一<br>扫<br>立<br>即<br>下<br>载</div>
+                <div class="f-p"><img src="img/foot-TD.png" alt=""></div>
+                <div class="f-p">
+                    <div>寻宝图</div>
+                    <div>IOS</div>
+                    <div>Android</div>
+                </div>
+            </div>
+        </li>
+        <br style="clear:both;" />
+    </ul>
+    <div class="foot-line">Copyright © 2017-2020 www.xunmap.com, All Rights Reserved 杭州缘之宝网络科技有限公司 浙ICP备17008218号</div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/js.js"></script>
+<script>
+    $("#wei-chat").mouseover(function(){
+        $("#weichat").css("display","block");
+    }).mouseout(function(){
+        $("#weichat").css("display","none");
+    })
+
+    $(" .service").mouseenter(function () {
+
+        $(" #service").show();
+    });
+    $(" .service").mouseleave(function () {
+        setTimeout(function () {
+                   $(" #service").hide();
+               },3000)
+    })
+</script>
+</body>
+</html>

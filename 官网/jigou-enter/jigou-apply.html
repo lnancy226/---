@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>机构入驻申请</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=3.0,user-scalable=no">
+    <link rel="stylesheet" href="../css/jigou-enter.css">
+</head>
+<body>
+<div class="container webContent">
+    <div class="current-location">当前位置:机构入驻-鉴定机构-申请入驻</div>
+    <form>
+        <div class="picture">
+            <button>上传照片</button><br>
+            <span>*请上传机构门头照</span>
+        </div>
+        <div class="content">
+            <h1>机构入驻申请</h1>
+            <div>
+                <span>机构名称:</span>
+                <input type="text">
+            </div>
+            <div>
+                <span>组织代码:</span>
+                <input type="text">
+            </div>
+            <div>
+                <span>所属类型:</span>
+                <select class="firstSelect">
+                    <option value="1" style="color: #b6b6b6" disabled selected>请选择</option>
+                    <option value="1" style="color: #b6b6b6">鉴定</option>
+                    <option value="1" style="color: #b6b6b6">典当</option>
+                    <option value="1" style="color: #b6b6b6">拍卖</option>
+                    <option value="1" style="color: #b6b6b6">协会</option>
+                    <option value="1" style="color: #b6b6b6">协会</option>
+                    <option value="1" style="color: #b6b6b6">展览</option>
+                    <option value="1" style="color: #b6b6b6">专家</option>
+                </select>
+                <select class="firstSelect">
+                    <option value="1" style="color: #b6b6b6" disabled selected>请选择</option>
+                    <option value="1" style="color: #b6b6b6">综合</option>
+                    <option value="1" style="color: #b6b6b6">珠宝</option>
+                    <option value="1" style="color: #b6b6b6">珠宝</option>
+                    <option value="1" style="color: #b6b6b6">古玩</option>
+                    <option value="1" style="color: #b6b6b6">字画</option>
+                    <option value="1" style="color: #b6b6b6">观赏石</option>
+                    <option value="1" style="color: #b6b6b6">其他</option>
+                </select>
+            </div>
+            <div>
+                <span>联&nbsp;系&nbsp;人&nbsp;:</span>
+                <input type="text">
+            </div>
+            <div>
+                <span>所在地区:</span>
+                <select class="firstSelect">
+                    <option value="1" style="color: #b6b6b6" disabled selected>请选择</option>
+                </select>
+                <select name="">
+                    <option value="1" style="color: #b6b6b6" disabled selected>请选择</option>
+                </select>
+                <select name="">
+                    <option value="1" style="color: #b6b6b6" disabled selected>请选择</option>
+                </select>
+            </div>
+            <div>
+                <span class="span-address">详细地址:</span>
+                <textarea name="" cols="30" rows="3"></textarea>
+            </div>
+            <div>
+                <span class="span-address">机构简介:</span>
+                <textarea name="" cols="30" rows="6"></textarea>
+            </div>
+            <div>
+                <span>机构照片:</span>
+                <input type="text" id="jigou-picture">
+                <button id="upload">点击上传</button>
+            </div>
+            <div id="limit">最多可上传6张照片</div>
+            <div class="submit">提交</div>
+        </div>
+        <br style="clear:both;" />
+    </form>
+</div>
+<div class="appContent">
+    <div class="app-header">
+        <div class="app-back">返回</div>
+        <span class="app-title">机构介绍</span>
+    </div>
+    <div class="app-enter-header">
+        <div class="app-enter-header-name">
+            <div>机构名称</div>
+            <div class="app-rightArrow"><img src="../img/rightArrow.png" alt=""></div>
+            <br style="clear: both">
+        </div>
+        <div class="app-enter-header-name">
+            <div>门头照片</div>
+            <div class="app-rightArrow"><img src="../img/rightArrow.png" alt=""></div>
+            <br style="clear: both">
+        </div>
+    </div>
+    <div class="app-enter-header">
+        <div class="app-enter-header-name">
+            <div>组织代码</div>
+            <div class="app-rightArrow"><img src="../img/rightArrow.png" alt=""></div>
+            <br style="clear: both">
+        </div>
+        <div class="app-enter-header-name">
+            <div>所属类型</div>
+            <div class="app-rightArrow"><img src="../img/rightArrow.png" alt=""></div>
+            <div class="app-choose">请选择</div>
+            <br style="clear: both">
+        </div>
+        <div class="app-enter-header-name">
+            <div>联系人</div>
+            <div class="app-rightArrow"><img src="../img/rightArrow.png" alt=""></div>
+            <br style="clear: both">
+        </div>
+        <div class="app-enter-header-name">
+            <div>联系方式</div>
+            <div class="app-rightArrow"><img src="../img/rightArrow.png" alt=""></div>
+            <br style="clear: both">
+        </div>
+        <div class="app-enter-header-name jigou-jieshao-area">
+            <div>所在地区</div>
+            <div class="app-rightArrow"><img src="../img/rightArrow.png" alt=""></div>
+            <div class="app-choose">请选择</div>
+            <br style="clear: both">
+        </div>
+        <div id="app-detail-address"><textarea name="address" id="detail-address" cols="30" rows="3" placeholder="请填写详细地址"></textarea></div>
+    </div>
+    <div class="app-jigou-jianjie">机构简介</div>
+    <div class="app-jigou-message app-jigou-apply-message">
+        <textarea name="" id="" cols="30" rows="4" placeholder="请输入机构简介"></textarea><br>
+        <input id="app-upload-img" type="file" accept="image/*" capture="camera" multiple>
+        <div id="app-camera"><img src="../img/app-camera-add.png" alt="" style="width: 60px;height:60px;"></div>
+    </div>
+    <div class="app-submit">提交</div>
+</div>
+<div class="shade"></div>
+<div class="pop-menu">
+    <div class="pop-prompt">请填写您的姓名</div>
+    <input class="pop-input" type="text" />
+    <div class="pop-btn">
+        <div class="pop-cancel">取消</div>
+        <div class="pop-ensure">确定</div>
+    </div>
+</div>
+<script src="../js/jquery.min.js"></script>
+<script>
+    $(function(){
+        $(".app-choose").click(function(){
+            $(".shade").show();
+            $(".pop-menu").show();
+            $(".pop-input").focus();
+        });
+        $(".pop-cancel").click(function(){
+            $(".shade").hide();
+            $(".pop-menu").hide();
+        });
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.my-container {
+  width: 1003px;
+  margin: 0 auto;
+}
+input,
+button,
+select,
+textarea {
+  border: none;
+  outline: none;
+}
+a {
+  text-decoration: none;
+}

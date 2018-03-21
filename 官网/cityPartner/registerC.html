@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>注册入口</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/register.css">
+
+    <style>
+        h1 {
+            margin-bottom: 90px;
+        }
+        /*.font26 {*/
+        /*font-size: 22px;*/
+        /*}*/
+        .btn-custom {
+            width: 150px;
+            height: 50px;
+            background-color: #4c7bc9;
+            font-size: 22px;
+            color: white;
+            margin-top: 20px;
+            margin-left: 346px;
+        }
+    </style>
+</head>
+<body>
+<!--<h2>城市合伙人注册入口</h2>-->
+<!--注册页面背景图片-->
+<img class="reg-bg" src="./images/register.png" alt="">
+<div class="my-container">
+<div id="apply">
+    <h1>城市合伙人-申请</h1>
+    <!--<div class="container">-->
+    <!--<p>申请名义：</p>-->
+    <!--<div class="item">-->
+    <!--<div class="personal">-->
+    <!--<p>个人</p>-->
+    <!--</div>-->
+    <!--<div class="company">-->
+    <!--<p>单位</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<button class="submit">确定</button>-->
+    <!--</div>-->
+    <div class="form-horizontal">
+        <div class="form-group form-group-lg">
+            <label for="inputName" class="col-sm-4 control-label">*单位名称：</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="inputName">
+            </div>
+        </div>
+
+        <div class="form-group form-group-lg">
+            <label for="inputId" class="col-sm-5 control-label" style="margin-left: -53px;">*营业执照注册号：</label>
+            <div class="col-sm-8">
+                <input type="email" class="form-control" id="inputId">
+            </div>
+        </div>
+
+        <div class="form-group form-group-lg">
+            <label for="inputId" class="col-sm-4 control-label">*目标城市：</label>
+            <div class="col-sm-8">
+                <select class="form-control province">
+                    <option>省</option>
+                    <!--<option>2</option>-->
+                    <!--<option>3</option>-->
+                    <!--<option>4</option>-->
+                    <!--<option>5</option>-->
+                </select>
+            </div>
+            <!--<div class="col-sm-4">-->
+                <!--<select class="form-control city">-->
+                    <!--<option>市</option>-->
+                    <!--&lt;!&ndash;<option>2</option>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<option>3</option>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<option>4</option>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<option>5</option>&ndash;&gt;-->
+                <!--</select>-->
+            <!--</div>-->
+        </div>
+
+        <div class="form-group form-group-lg">
+            <label for="inputTel" class="col-sm-4 control-label">*联系方式：</label>
+            <div class="col-sm-8">
+                <input type="email" class="form-control" id="inputTel">
+            </div>
+        </div>
+
+        <div class="form-group form-group-lg">
+            <label for="inputText" class="col-sm-4 control-label">申请说明：</label>
+            <div class="col-sm-8">
+                <!--<input type="email" class="form-control" id="inputText" placeholder="手机号码">-->
+                <textarea class="form-control" id="inputText" rows="5"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-custom" id="submit">提交申请</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/jquery.cookie.js"></script>
+<script src="./js/bootstrap.js"></script>
+<script src="./src/registerP.js"></script>
+</html>

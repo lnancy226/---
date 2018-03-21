@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的宝贝</title>
+    <link rel="stylesheet" href="./css/myShop.css">
+
+    <style>
+        .exhibition .nav a.active {
+            color: #d04424;
+            position: relative;
+            top: -4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <img src="./images/red-logo.png" alt="">
+            <a class="logout" href="javascript:;">退出登录</a>
+        </header>
+    </div>
+    <div class="navbar">
+        <div class="container">
+            <ul>
+                <li>
+                    <a href="./myShop.html">我的店铺</a>
+                </li>
+                <li>
+                    <a class="active" href="./myGoods.html">我的宝贝</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="exhibition">
+            <div class="title">
+                <div class="title-content">宝贝展厅
+                </div>
+                <div class="add">
+                    <a href="./goodsAdd.html">添加宝贝</a>
+                </div>
+            </div>
+            <div class="main">
+                <div class="nav">
+                    <ul>
+                        <li data-goods="0"><a class="active" href="javascript:;">全部宝贝</a><span>/</span></li>
+                        <li data-goods="1"><a href="javascript:;">特价区</a><span>/</span></li>
+                        <li data-goods="2"><a href="javascript:;">精品区</a></li>
+                    </ul>
+                </div>
+                <div class="show">
+                    <ul id="goodsListBox">
+                    </ul>
+                </div>
+                <div class="page">
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>杭州缘之宝网络科技有限公司 版权所有</p>
+            <ul>
+                <li>
+                    <a href="#">寻宝图手机版</a> |
+                    <a href="#">官方网站</a> |
+                    <a href="#">服务协议</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!--宝贝展厅模板-->
+    <script type="text/template" id="myGoodsList">
+        {{each data}}
+        <li class="item">
+            <div class="pic">
+                <img src="{{$value.goodsFile.url}}" alt="">
+            </div>
+            <div class="txt">
+                <p><span class="name">{{$value.goodsName}}</span><span>{{$value.material}}</span></p>
+                <p>市场参考价：<span class="price">{{$value.goodsMarketprice}}元</span></p>
+            </div>
+            <div class="operate hide">
+                <a class="goodsDetail" href="./goodsDetail.html?goodsId={{$value.id}}">查看详情</a>
+                <a class="editGoods" href="./goodsEdit.html?goodsId={{$value.id}}">编辑</a>
+                <a class="deleGoods" data-goodId="{{$value.id}}" href="javascript:;">删除</a>
+            </div>
+        </li>
+        {{/each}}
+    </script>
+    <!-- 分页模板 -->
+    <script type="text/template" id="page">
+        <div class="prev"><a href="?pageNum=<%= pageNum-1 %>">上一页</a></div>
+        <ul class="pageNum">
+            <% for(var i=1; i<=pageLen; i++) { %>
+            <li <% if(i == pageNum) { %> class="active" <% }%>><a href="?pageNum=<%= i %>"><%= i %></a></li>
+            <% } %>
+        </ul>
+        <div class="next"><a href="?pageNum=<%= pageNum-0+1 %>">下一页</a></div>
+    </script>
+
+    <!--全局-->
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/jquery.cookie.js"></script>
+    <script src="./js/template-web.js"></script>
+    <script src="./js/logout.js"></script>
+    <!--本页面-->
+    <script src="./js/myShop.js"></script>
+</body>
+
+</html>

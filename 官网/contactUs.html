@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=3.0,user-scalable=yes">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <title>联系我们</title>
+</head>
+<body>
+<div id="nav" class="contactUs-nav">
+    <div id="nav-logo">
+        <img src="img/red-logo.png" alt="logo">
+    </div>
+    <ul class="right">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="aboutUs.html">关于我们</a></li>
+        <li><a href="news.html">新闻资讯</a></li>
+        <!--<li><a href="organization.html">机构入驻</a></li>-->
+        <li class="active-bs"><a href="contactUs.html">联系我们</a></li>
+    </ul>
+</div>
+<div id="map-box">
+    <div id="contacts">
+        <!--<img src="img/contact-map.png" alt="">-->
+    </div>
+</div>
+<div class="foot">
+    <ul>
+        <li>
+            <p>CONTACT US</p>
+            <div class="line"><img src="img/line.png" alt=""></div>
+            <div class="foot-logo"><img src="img/foot-logo.png" alt=""></div>
+            <p><img src="img/call.png" alt="">&nbsp;&nbsp;&nbsp;客服热线：0571-86785152</p>
+            <p><img src="img/foot-QQ.png" alt="">&nbsp;&nbsp;&nbsp;QQ：2042325748</p>
+            <p><img src="img/email.png" alt="">&nbsp;&nbsp;&nbsp;邮箱：xunmap@xunmap.com</p>
+        </li>
+        <li id="secondLI">
+            <p>ABOUT XunMap</p>
+            <div class="line"><img src="img/line.png" alt=""></div>
+            <div class="foot-text">
+                <div><img src="img/shift.png" alt=""></div>
+                <div>寻宝图是杭州缘之宝网络科技有限公司专门为帮助收藏爱好者寻宝、捡漏、收藏、交友而开发的工具/社交型软件，
+                    它利用了互联网技术来解决收藏过程中的展示、交流、学习及信用等问题，帮助更多的人爱上收藏，学会收藏。</div>
+            </div>
+        </li>
+        <li class="lastLI">
+            <p>PRODUCT</p>
+            <div class="line"><img src="img/line.png" alt=""></div>
+            <div>
+                <div class="f-p">扫<br>一<br>扫<br>立<br>即<br>下<br>载</div>
+                <div class="f-p"><img src="img/foot-TD.png" alt=""></div>
+                <div class="f-p">
+                    <div>寻宝图</div>
+                    <div>IOS</div>
+                    <div>Android</div>
+                </div>
+            </div>
+        </li>
+        <br style="clear:both;" />
+    </ul>
+    <div class="foot-line">Copyright © 2017-2020 www.xunmap.com, All Rights Reserved 杭州缘之宝网络科技有限公司 浙ICP备17008218号</div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=BB7GOaA6Syk4UWKNzdwpwKY1hNBlHl8y"></script>
+<script>
+    $(document).ready(function(){
+        //创建地图实例
+        var map = new BMap.Map("contacts");
+        //创建点坐标
+        var point = new BMap.Point(120.200196,30.190517);
+        //初始化地图，设置中心点坐标和地图级别
+        map.centerAndZoom(point, 15);
+        map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+        var marker = new BMap.Marker(point);        // 创建标注
+        map.addOverlay(marker);                     // 将标注添加到地图中
+        //var infoWindow = new BMap.InfoWindow(sContent);  // 创建信息窗口对象
+        var opts = {
+            width : 240,
+            height:130,
+            title : "<div style='color:#e74642;font-size: 16px;margin-bottom: 5px;'>缘之宝网络科技有限公司</div><div>地址：杭州市滨江区和瑞科技园T1-315</div>" +
+            "<div>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;编：310051</div><div>客服热线：0571-86785152</div>" ,
+            enableMessage:true
+        };
+        var infoWindow = new BMap.InfoWindow("email：xunmap@xunmap.com", opts);  // 创建信息窗口对象
+        map.openInfoWindow(infoWindow,point); //开启信息窗口
+    })
+</script>
+</body>
+</html>

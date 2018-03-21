@@ -1,0 +1,425 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+input,
+button,
+select,
+textarea {
+  border: none;
+  outline: none;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+li {
+  list-style: none;
+}
+.container {
+  width: 1003px;
+  margin: 0 auto;
+}
+.active {
+  color: #d04424;
+}
+a:hover {
+  color: #d04424;
+}
+header {
+  height: 100px;
+  line-height: 100px;
+}
+header img {
+  vertical-align: middle;
+}
+header a {
+  float: right;
+  color: #999;
+  font-size: 16px;
+}
+.navbar {
+  width: 100%;
+  height: 80px;
+  line-height: 80px;
+  background-color: #111;
+}
+.navbar ul {
+  float: right;
+  overflow: hidden;
+}
+.navbar ul li {
+  float: left;
+  margin-left: 90px;
+}
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  margin: 150px 0 35px;
+}
+.footer p {
+  margin-bottom: 8px;
+}
+.footer li {
+  color: #999;
+}
+.footer a {
+  color: #999;
+}
+.footer a:hover {
+  color: #d04424;
+}
+.hide {
+  display: none;
+}
+#box {
+  width: 100%;
+  height: 481px;
+  position: relative;
+  overflow: hidden;
+  /*要给一个导航小方块激活样式*/
+}
+#box ul {
+  position: relative;
+  height: 100%;
+}
+#box ul li {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+}
+#box ul img {
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: middle;
+}
+#box ol#nav {
+  position: absolute;
+  left: 50%;
+  bottom: 30px;
+  margin-left: -55px;
+}
+#box ol#nav li {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin-right: 10px;
+  float: left;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+}
+#box ol#nav li.active {
+  background-color: #3e3830;
+}
+#box > a {
+  position: absolute;
+  top: 50%;
+  margin-top: -35px;
+  display: block;
+  width: 40px;
+  height: 70px;
+  background-color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-size: 40px;
+  text-align: center;
+  line-height: 70px;
+  color: #fff;
+  /*默认先让小箭头隐藏*/
+  display: none;
+}
+#box a#right {
+  right: 0;
+}
+.edit-shop,
+.edit-shopInfo {
+  width: 100%;
+  background-color: #f6f6f6;
+  font-size: 20px;
+  color: #666;
+  padding: 20px 0;
+  overflow: hidden;
+}
+.edit-shop .content,
+.edit-shopInfo .content {
+  position: relative;
+}
+.edit-shop li,
+.edit-shopInfo li {
+  line-height: 40px;
+}
+.edit-shop .edit-l,
+.edit-shopInfo .edit-l {
+  float: left;
+  width: 500px;
+  padding-right: 25px;
+}
+.edit-shop .edit-r,
+.edit-shopInfo .edit-r {
+  float: right;
+  width: 500px;
+  padding-left: 25px;
+}
+.edit-shop .edit,
+.edit-shopInfo .edit,
+.edit-shop .editShopInfo,
+.edit-shopInfo .editShopInfo {
+  position: absolute;
+  top: -20px;
+  right: 0;
+  width: 150px;
+  height: 50px;
+  line-height: 50px;
+  background: #f29d17 url("../images/edit.png") no-repeat 20px 16px;
+}
+.edit-shop .edit a,
+.edit-shopInfo .edit a,
+.edit-shop .editShopInfo a,
+.edit-shopInfo .editShopInfo a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding-left: 50px;
+}
+#edit-shop input {
+  height: 25px;
+}
+#edit-shop #shopName {
+  width: 325px;
+}
+#edit-shop select {
+  width: 69px;
+  height: 25px;
+}
+#edit-shop .address {
+  position: relative;
+}
+#edit-shop #detailAddress {
+  position: absolute;
+  bottom: -75px;
+  right: 50px;
+  width: 200px;
+  height: 65px;
+}
+#edit-shop #floor,
+#edit-shop #houseNum {
+  width: 76px;
+}
+#edit-shop #tel {
+  width: 180px;
+}
+#edit-shop #nature {
+  width: 112px;
+  height: 25px;
+}
+#edit-shop .content {
+  position: relative;
+}
+#edit-shop #submitShopInfo {
+  background-image: url("../images/submit.png");
+}
+.exhibition {
+  overflow: hidden;
+}
+.exhibition .title {
+  height: 160px;
+  padding-top: 50px;
+}
+.exhibition .title .title-content {
+  width: 226px;
+  height: 60px;
+  line-height: 60px;
+  font-size: 25px;
+  color: #fff;
+  text-align: center;
+  margin: 0 auto;
+  background: url("../images/title-bg.png") no-repeat;
+}
+.exhibition .main .nav {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+.exhibition .main .nav ul {
+  float: right;
+  font-size: 18px;
+  overflow: hidden;
+  position: relative;
+}
+.exhibition .main .nav li {
+  float: left;
+  color: #aaa;
+  cursor: pointer;
+}
+.exhibition .main .nav li span {
+  padding: 0 6px;
+}
+.exhibition .main a {
+  color: #aaa;
+}
+.exhibition .main a:hover {
+  color: #d04424;
+}
+.exhibition .show #goodsListBox {
+  overflow: hidden;
+}
+.exhibition .show .item {
+  position: relative;
+  float: left;
+  width: 226px;
+  height: 320px;
+  border-radius: 5px;
+  margin-right: 33px;
+  margin-bottom: 50px;
+  background-color: white;
+  box-shadow: 0 0 35px #eae9e9;
+  overflow: hidden;
+}
+.exhibition .show .item:nth-child(4n) {
+  margin-right: 0;
+}
+.exhibition .show .operate {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+  padding: 84px 34px 0;
+}
+.exhibition .show .operate a {
+  display: block;
+  color: #fff;
+}
+.exhibition .show .operate .goodsDetail {
+  width: 100%;
+  margin-bottom: 36px;
+}
+.exhibition .show .operate .goodsDetail:hover {
+  color: #d04424;
+}
+.exhibition .show .operate .editGoods,
+.exhibition .show .operate .deleGoods {
+  float: left;
+  width: 58px;
+  height: 58px;
+  line-height: 58px;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #333;
+  text-align: center;
+}
+.exhibition .show .operate .editGoods:hover,
+.exhibition .show .operate .deleGoods:hover {
+  font-size: 20px;
+}
+.exhibition .show .operate .deleGoods {
+  float: right;
+  color: #fff;
+  background-color: #d04424;
+}
+.exhibition .pic {
+  width: 100%;
+  overflow: hidden;
+}
+.exhibition .pic img {
+  width: 226px;
+}
+.exhibition .txt {
+  font-size: 16px;
+  color: #999;
+  padding: 5px 10px;
+}
+.exhibition .txt p {
+  margin-bottom: 10px;
+}
+.exhibition .txt .name {
+  font-size: 18px;
+  color: #333;
+  margin-right: 10px;
+}
+.exhibition .txt .price {
+  color: #d04424;
+}
+.exhibition .page {
+  float: right;
+}
+.exhibition .page .prev,
+.exhibition .page .next {
+  float: left;
+  width: 80px;
+  height: 35px;
+  border: 1px solid #d04424;
+  text-align: center;
+  font-size: 18px;
+  padding-top: 5px;
+}
+.exhibition .page .prev a,
+.exhibition .page .next a {
+  color: #d04424;
+}
+.exhibition .page .prev {
+  margin-right: 20px;
+}
+.exhibition .page .next {
+  margin-left: 20px;
+}
+.exhibition .page .pageNum {
+  float: left;
+}
+.exhibition .page .pageNum li {
+  float: left;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #dedede;
+  border-radius: 50%;
+  margin: 0 10px;
+  font-size: 14px;
+  color: #999;
+  text-align: center;
+  padding-top: 5px;
+  cursor: pointer;
+}
+.exhibition .page .pageNum li:nth-child(4) {
+  border: 0;
+}
+.exhibition .page .pageNum li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.exhibition .page .pageNum li.active,
+.exhibition .page .pageNum li:hover {
+  background-color: #d04424;
+  border: 0;
+}
+.exhibition .page .pageNum li.active a,
+.exhibition .page .pageNum li:hover a {
+  color: #fff;
+}
+.title {
+  position: relative;
+}
+.add {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 150px;
+  height: 50px;
+  border-radius: 2px;
+  line-height: 50px;
+  background: #f29d17 url("../images/add.png") no-repeat 26px 14px;
+}
+.add a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding-left: 58px;
+}

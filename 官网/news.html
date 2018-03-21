@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=3.0,user-scalable=yes">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <title>新闻资讯</title>
+</head>
+<body>
+<div id="nav" class="news-nav">
+    <div id="nav-logo">
+        <img src="img/red-logo.png" alt="logo">
+    </div>
+    <ul class="right">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="aboutUs.html">关于我们</a></li>
+        <li class="active-bs"><a href="news.html">新闻资讯</a></li>
+        <!--<li><a href="organization.html">机构入驻</a></li>-->
+        <li><a href="contactUs.html">联系我们</a></li>
+    </ul>
+</div>
+<div class="news-body">
+    <div class="news-left">
+        <div class="news-left-head">
+            <a href="" class="firstNews">
+                <img src="img/img-1.png" alt=""><br>
+                <div class="head-title"></div>
+            </a>
+        </div>
+        <ul class="news-left-list"></ul>
+        <ul id="pageNum" class="pagination" style="float: right;margin:0;"></ul>
+    </div>
+    <div class="news-right">
+        <div class="news-right-head">
+            <div id="banner">
+                <div id="banner_bg"></div>
+                <!--标题背景-->
+                <div id="banner_info"></div>
+                <!--标题-->
+                <ul>
+                    <li class="on">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <!--<li>4</li>-->
+                </ul>
+                <div id="banner_list"></div>
+            </div>
+        </div>
+        <div class="news-right-line"></div>
+        <div class="hot-news-title">最热资讯</div>
+        <ul class="news-right-list"></ul>
+    </div>
+    <br style="clear:both;" />
+</div>
+<div class="foot">
+    <ul>
+        <li>
+            <p>CONTACT US</p>
+            <div class="line"><img src="img/line.png" alt=""></div>
+            <div class="foot-logo"><img src="img/foot-logo.png" alt=""></div>
+            <p><img src="img/call.png" alt="">&nbsp;&nbsp;&nbsp;客服热线：0571-86785152</p>
+            <p><img src="img/foot-QQ.png" alt="">&nbsp;&nbsp;&nbsp;QQ：2042325748</p>
+            <p><img src="img/email.png" alt="">&nbsp;&nbsp;&nbsp;邮箱：xunmap@xunmap.com</p>
+        </li>
+        <li id="secondLI">
+            <p>ABOUT XunMap</p>
+            <div class="line"><img src="img/line.png" alt=""></div>
+            <div class="foot-text">
+                <div><img src="img/shift.png" alt=""></div>
+                <div>寻宝图是杭州缘之宝网络科技有限公司专门为帮助收藏爱好者寻宝、捡漏、收藏、交友而开发的工具/社交型软件，
+                    它利用了互联网技术来解决收藏过程中的展示、交流、学习及信用等问题，帮助更多的人爱上收藏，学会收藏。</div>
+            </div>
+        </li>
+        <li class="lastLI">
+            <p>PRODUCT</p>
+            <div class="line"><img src="img/line.png" alt=""></div>
+            <div>
+                <div class="f-p">扫<br>一<br>扫<br>立<br>即<br>下<br>载</div>
+                <div class="f-p"><img src="img/foot-TD.png" alt=""></div>
+                <div class="f-p">
+                    <div>寻宝图</div>
+                    <div>IOS</div>
+                    <div>Android</div>
+                </div>
+            </div>
+        </li>
+        <br style="clear:both;" />
+    </ul>
+    <div class="foot-line">Copyright © 2017-2020 www.xunmap.com, All Rights Reserved 杭州缘之宝网络科技有限公司 浙ICP备17008218号</div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    //获取新闻资讯
+    var newsData = JSON.stringify({
+        pageNum:1,
+        pageSize:10
+    });
+    $.ajax({
+        type:"put",
+        url:"http://116.62.131.70:8080/roo-mobile-web/news/read/page",
+        contentType: "application/json;charset=utf-8",
+        dataType:"JSON",
+        data:newsData,
+        success:function(data){
+            if(data.httpCode == 200){
+                $(".firstNews").attr("href",data.data[0].fromWebsite);
+                $(".news-left-head img").attr("src",data.data[0].newsImage);
+                $(".head-title").html(data.data[0].newsTitle);
+                $.each(data.data,function(index,value){
+                    if(index != 0){
+                        createShowingTable(value);
+                    }
+                });
+                page(data.pages);
+                var id=data.data[0].id;
+            }
+        }
+    });
+
+    //数据填充
+    function createShowingTable(value){
+        var time = value.publishTime.split(" ");
+        $(".news-left-list").append("<li onclick=checkNews('"+ value.id +"','"+ value.fromWebsite +"') style='width:100%;border-bottom: solid 1px #ccc;padding-top:20px;list-style: none;cursor: pointer'><a target='_blank' href="+value.fromWebsite+" >" +
+            "<div class='newsImgDiv' style='float: left;'><img src='"+ value.newsImage +"' alt='新闻图片'></div>" +
+            "<div class='readDiv' style='float:left;padding-left: 25px;position:relative;'><div  class='newsTitle'>"+ value.newsTitle +"</div>" +
+            "<div style='width:94%;position: absolute;left:25px;bottom: 0;font-size: 16px;color:#999;'><div style='float:left;'>"+ time[0] +"</div>" +
+            "<div style='float:right;'>"+ value.showCount +"阅读</div></div></div></a></li>");
+    }
+
+    //翻页功能
+    function page(pages){
+        $("#pageNum").append("<li value=0><a>&laquo;</a></li>");
+        for(i=1;i<=pages;i++){
+            $("#pageNum").append("<li value='"+ i +"' onclick=requestNextData($(this),"+ i +")><a style='cursor: pointer;')>"+ i +"</a></li>")
+        }
+        $("#pageNum").append("<li value="+ pages+1 +"><a>&raquo;</a></li>");
+    }
+
+    //点击查看资讯
+    function checkNews(id,fromWebsite){
+        $.ajax({
+            type:"get",
+            url:"http://116.62.131.70:8080/roo-mobile-web/news/"+id,
+            contentType: "application/json;charset=utf-8",
+            dataType:"JSON",
+            success:function(data){
+                console.log(data,"资讯详情");
+                if(data.httpCode == 200){
+                }
+            }
+        })
+    }
+
+    //点击查看下一页资讯
+    function requestNextData(obj,page){
+        var nextcurioData;
+        nextcurioData = JSON.stringify({
+            pageNum:page
+        });
+        console.log(nextcurioData,"nextcurioData");
+        $.ajax({
+            type:"put",
+            url:"http://116.62.131.70:8080/roo-mobile-web/news/read/page",
+            contentType: "application/json;charset=utf-8",
+            dataType:"JSON",
+            data:nextcurioData,
+            success:function(data){
+                console.log(data,"资讯翻页");
+                if(data.httpCode == 200){
+                    $(".firstNews").attr("href",data.data[0].fromWebsite);
+                    $(".news-left-head img").attr("src",data.data[0].newsImage);
+                    $(".head-title").html(data.data[0].newsTitle);
+                    //清除列表上一页的资讯数据
+                    $(".news-left-list").empty();
+                    $.each(data.data,function(index,value){
+                        if(index != 0){
+                            createShowingTable(value);
+                        }
+                    });
+                    obj.addClass("Active").siblings().removeClass("Active");  //点击后按钮颜色改变
+                }
+            }
+        })
+    }
+
+    //获取最热新闻资讯
+    var newsData = JSON.stringify({
+        pageNum:1,
+        pageSize:10,
+        sort:"hot"
+    });
+    $.ajax({
+        type:"put",
+        url:"http://116.62.131.70:8080/roo-mobile-web/news/read/page",
+        contentType: "application/json;charset=utf-8",
+        dataType:"JSON",
+        data:newsData,
+        success:function(data){
+            if(data.httpCode == 200){
+                $.each(data.data,function(index,value){
+                    var time = value.publishTime.split(" ");
+                    $(".news-right-list").append("<li style='width:100%;height:65px;padding-top:10px;list-style: none;cursor: pointer;'><a href='"+ value.fromWebsite +"'>" +
+                        "<div style='float: left'><img src='img/tri-angel.png' alt='三角' style='width:6px;height:8px;'>" +
+                        "<span style='color:#333;'>&nbsp;&nbsp;"+ value.newsTitle +"</span>" +
+                        "<div style='color:#999;'>&nbsp;&nbsp;&nbsp;&nbsp;"+ time[0] +"</div></div></a></li>");
+                })
+            }
+        }
+    });
+    //轮播banner
+    var t = n =0, count;
+    $(document).ready(function(){
+        var bannerData = JSON.stringify({
+            apId:1
+        });
+        $.ajax({
+            type:"put",
+            url:"http://116.62.131.70:8080/roo-mobile-web/adv/read/list",
+            contentType: "application/json;charset=utf-8",
+            dataType:"JSON",
+            data:bannerData,
+            success:function(data){
+                if(data.httpCode == 200){
+                    $.each(data.data,function(index,value){
+                        $("#banner_list").append("<a href='"+ value.content.linkUrl +"' target='_blank'><img style='bannerImg' src='"+ value.content.picUrl +"' title='"+ value.advTitle +"' alt='"+ value.advTitle +"'></a>")
+                    })
+                    count=$("#banner_list a").length;
+                    $("#banner_list a:not(:first-child)").hide();
+                    $("#banner_info").html($("#banner_list a:first-child").find("img").attr('alt'));
+                    $("#banner_info").click(function(){window.open($("#banner_list a:first-child").attr('href'), "_blank")});
+                    $("#banner li").click(function() {
+                        var i = $(this).text() -1;//获取Li元素内的值，即1，2，3，4
+                        n = i;
+                        if (i >= count) return;
+                        $("#banner_info").html($("#banner_list a").eq(i).find("img").attr('alt'));
+                        $("#banner_info").unbind().click(function(){window.open($("#banner_list a").eq(i).attr('href'), "_blank")})
+                        $("#banner_list a").filter(":visible").fadeOut(500).parent().children().eq(i).fadeIn(1000);
+                        document.getElementById("banner").style.background="";
+                        $(this).toggleClass("on");
+                        $(this).siblings().removeAttr("class");
+                    });
+                    t = setInterval("showAuto()", 4000);
+                    $("#banner").hover(function(){clearInterval(t)}, function(){t = setInterval("showAuto()", 4000);});
+                }
+            }
+        });
+    })
+    function showAuto(){
+        n = n >=(count -1) ?0 : ++n;
+        $("#banner li").eq(n).trigger('click');
+    }
+</script>
+</body>
+</html>

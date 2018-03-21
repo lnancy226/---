@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>专家入驻</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=3.0,user-scalable=no">
+    <link rel="stylesheet" href="./css/mui.min.css">
+    <link rel="stylesheet" href="./css/mui.picker.min.css">
+    <link rel="stylesheet" href="./css/mui.poppicker.min.css">
+
+    <link rel="stylesheet" href="./css/jigou-enter.min.css">
+    <link rel="stylesheet" href="./css/apply.min.css">
+</head>
+<body>
+<div class="appContent">
+    <header id="header" class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"><span class="back">返回</span></a>
+        <a class="mui-pull-left" id="close">关闭</a>
+
+        <h1 class="mui-title">专家入驻</h1>
+        <!--<a href="./experts-apply.html" class="mui-btn mui-btn-link mui-pull-right">我要入驻</a>-->
+    </header>
+    <div class="mui-content">
+            <div class="app-enter-header">
+                    <div class="app-enter-header-name prompt-btn">
+                        <div><span class="inp-type">您的姓名</span><span class="my-info expName"></span></div>
+                        <div class="app-rightArrow"><img src="img/rightArrow.png" alt=""></div>
+                        <br style="clear: both">
+                    </div>
+                    <div class="app-enter-header-name prompt-btn">
+                        <div><span class="inp-type">任职机构</span><span class="my-info organ"></span></div>
+                        <div class="app-rightArrow"><img src="img/rightArrow.png" alt=""></div>
+                        <br style="clear: both">
+                    </div>
+            </div>
+            <div class="app-enter-header">
+                <div class="app-enter-header-name" id='showTypePicker'>
+                    <div>所属类型  &nbsp;&nbsp;<span></span></div>
+                    <div class="app-rightArrow"><img src="img/rightArrow.png" alt=""></div>
+                    <div class="app-choose" id='typeResult'>请选择</div>
+                    <br style="clear: both">
+                </div>
+                <div class="app-enter-header-name prompt-btn">
+                    <div><span class="inp-type">联系方式</span><span class="my-info phone"></span></div>
+                    <div class="app-rightArrow"><img src="img/rightArrow.png" alt=""></div>
+                    <br style="clear: both">
+                </div>
+                <div class="app-enter-header-name" id='showCityPicker'>
+                    <div>所在地区  &nbsp;&nbsp;<span></span></div>
+                    <div class="app-rightArrow"><img src="img/rightArrow.png" alt=""></div>
+                    <div class="app-choose" id='cityResult'>请选择</div>
+                    <select name="area" class="select-area"></select>
+                    <br style="clear: both">
+                </div>
+            </div>
+            <div class="app-jigou-jianjie">专家简介</div>
+            <div class="app-jigou-message app-jigou-apply-message">
+                <textarea name="" id="remark" cols="30" rows="4" placeholder="请输入您的个人简介"></textarea><br>
+            </div>
+            <div class="app-submit">提交</div>
+    </div>
+</div>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/jquery.cookie.min.js"></script>
+<script src="./js/mui.min.js"></script>
+<script src="./js/mui.picker.min.js"></script>
+<script src="./js/mui.poppicker.min.js"></script>
+<script src="./js/city.data.min.js"></script>
+<script src="./src/hybrid.min.js"></script>
+
+<script src="./src/expApply.min.js"></script>
+</body>
+</html>

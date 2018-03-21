@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=3.0,user-scalable=no">
+    <link rel="stylesheet" href="./css/mui.min.css">
+    <!--<link rel="stylesheet" href="./css/photoswipe.css">-->
+    <!--<link rel="stylesheet" href="./css/default-skin/default-skin.css">-->
+    <link rel="stylesheet" href="./css/index.min.css">
+    <title>机构</title>
+</head>
+<body>
+<div class="appContent">
+    <header id="header" class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" id="back"><span class="back">返回</span></a>
+        <h1 class="mui-title">机构</h1>
+    </header>
+    <div class="mui-content">
+        <div id="slider" class="mui-slider">
+            <div class="mui-slider-group mui-slider-loop">
+                <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+                <div class="mui-slider-item mui-slider-item-duplicate">
+                    <a href="#">
+                        <img src="./img/orgBanner03.jpg">
+                    </a>
+                </div>
+                <!-- 第一张 -->
+                <div class="mui-slider-item">
+                    <a href="#">
+                        <img src="./img/orgBanner01.jpg">
+                    </a>
+                </div>
+                <!-- 第二张 -->
+                <div class="mui-slider-item">
+                    <a href="#">
+                        <img src="img/orgBanner02.jpg">
+                    </a>
+                </div>
+                <!-- 第三张 -->
+                <div class="mui-slider-item">
+                    <a href="#">
+                        <img src="img/orgBanner03.jpg">
+                    </a>
+                </div>
+                <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+                <div class="mui-slider-item mui-slider-item-duplicate">
+                    <a href="#">
+                        <img src="img/orgBanner01.jpg">
+                    </a>
+                </div>
+            </div>
+            <div class="mui-slider-indicator">
+                <div class="mui-indicator mui-active"></div>
+                <div class="mui-indicator"></div>
+                <div class="mui-indicator"></div>
+            </div>
+        </div>
+        <div class="app-menu">
+            <ul class="mui-table-view mui-grid-view mui-grid-9">
+                <li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3"><a href="./jigou-list.html?data-type=1&orgSort=鉴定机构">
+                    <div class="my-icon"><img src="img/app-jianding-icon.png" alt=""></div>
+                    <div class="mui-media-body">鉴定</div>
+                </a></li>
+                <li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3"><a href="./jigou-list.html?data-type=2&orgSort=典当机构">
+                    <div class="my-icon"><img src="img/app-diandang-icon.png" alt=""></div>
+                    <div class="mui-media-body">典当</div>
+                </a></li>
+                <li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3"><a href="./jigou-list.html?data-type=3&orgSort=拍卖机构">
+                    <div class="my-icon"><img src="img/app-paimai-icon.png" alt=""></div>
+                    <div class="mui-media-body">拍卖</div>
+                </a></li>
+                <li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3"><a href="./jigou-list.html?data-type=4&orgSort=协会">
+                    <div class="my-icon"><img src="img/app-xiehui-icon.png" alt=""></div>
+                    <div class="mui-media-body">协会</div>
+                </a></li>
+                <li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3"><a href="./jigou-list.html?data-type=6&orgSort=学校">
+                    <div class="my-icon"><img src="img/app-xuexiao-icon.png" alt=""></div>
+                    <div class="mui-media-body">学校</div>
+                </a></li>
+                <li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3"><a href="./jigou-list.html?data-type=5&orgSort=展览">
+                    <div class="my-icon"><img src="img/app-zhanlan-icon.png" alt=""></div>
+                    <div class="mui-media-body">展览馆</div>
+                </a></li>
+                <li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3"><a href="./jigou-list.html?data-type=7&orgSort=博物馆">
+                    <div class="my-icon"><img src="img/app-museum-icon.png" alt=""></div>
+                    <div class="mui-media-body">博物馆</div>
+                </a></li>
+                <li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3"><a href="./experts-list.html">
+                    <div class="my-icon"><img src="img/app-zhuanjia-icon.png" alt=""></div>
+                    <div class="mui-media-body">专家</div>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/jquery.cookie.min.js"></script>
+<script src="./js/mui.min.js"></script>
+<!--<script src="./js/photoswipe.min.js"></script>-->
+<!--<script src="./js/photoswipe-ui-default.min.js"></script>-->
+<script src="./src/hybrid.min.js"></script>
+<script src="./src/organization.min.js"></script>
+<script>
+    $.cookie('doorPhoto','');
+//    var Authorization = $.cookie('Authorization');
+//    alert(Authorization+"myToken");
+//    alert($.cookie('doorPhoto')+"doorPhoto");
+mui('.app-menu li').on('tap','a',function(){
+    window.top.location.href=this.href;
+});
+
+
+//    var u = navigator.userAgent;
+//    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+//    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+////    alert('是否是Android：'+isAndroid);
+//    alert('是否是iOS：'+isiOS);
+</script>
+</body>
+</html>

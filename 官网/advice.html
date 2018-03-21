@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=3.0,user-scalable=yes">
+    <link rel="stylesheet" type="text/css" href="css/advice.css">
+    <title>填写意见和建议</title>
+</head>
+<body>
+<div class="container">
+    <div class="head-box">
+        <p class="header">新增/完善古玩城资料</p>
+        <p class="hello">您好，欢迎您给我们提供古玩城相关资料！我们会对每一份资料进行跟进。</p>
+    </div>
+    <form action="#" method="POST">
+        <label>反馈内容：</label>
+        <textarea class="content" name="fbContent" type="text"></textarea><br>
+        <label>联系方式：</label>
+        <input class="contact" name="remark" type="text"><br>
+        <input class="submit" type="button" onclick="push()" value="提交" />
+    </form>
+</div>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+	function push(){
+			var data = {
+					"fbContent":$(".content").val(),
+					"remark":$(".contact").val()
+				}; 
+			$.ajax({
+				url:"http://www.xunmap.com:8080/roo-mobile-web/feedback",
+				type:"POST",
+				data:JSON.stringify(data),
+				contentType:"application/json",
+				success:function(data){
+					if(data.httpCode != 200){
+						alert(data.msg);
+					}
+					alert("提交成功！");
+                    $(".content").val("");
+                    $(".contact").val("");
+				},
+				error:function(){
+					alert("出现错误，请联系官网工作人员");
+				}
+			});
+		}
+</script>
+</body>
+</html>

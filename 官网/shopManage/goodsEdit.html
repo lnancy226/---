@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>添加宝贝</title>
+    <link rel="stylesheet" href="./css/goodsDetail.css">
+
+    <style>
+        .exhibition .main a.active {
+            color: #d04424;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+<!-- 顶部 -->
+<div class="container">
+    <header>
+        <img src="./images/red-logo.png" alt="">
+        <a class="logout" href="javascript:;">退出登录</a>
+    </header>
+</div>
+<!-- 导航 -->
+<div class="navbar">
+    <div class="container">
+        <ul>
+            <li>
+                <a href="./myShop.html">我的店铺</a>
+            </li>
+            <li>
+                <a class="active" href="./myGoods.html">我的宝贝</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="container">
+    <!-- 宝贝详情 -->
+    <div id="detail">
+        <div class="gallery">
+            <div class="main-pic">
+                <img id="mainPic" src="./images/main-bg.png" alt=""></a>
+                <div id="uploadMinImg" onclick="getElementById('mainImg').click()" style="cursor:pointer;">点击上传</div>
+                <input type="file" id="mainImg"
+                       style="height:0;width:0;z-index: -1;  position: absolute;left: 10px;top: 5px;">
+            </div>
+            <div class="site-pic">
+                <ul>
+                    <li class="hide">
+                        <img id="mainPicBanner" src="./images/site.png" alt="">
+                        <!--<div class="dele">×</div>-->
+                        <div class="instrc">主图</div>
+                    </li>
+                </ul>
+                <div class="upload hide">
+                    <form action="">
+                        <img onclick="getElementById('file').click()" style="cursor:pointer;" title="点击添加图片"
+                             alt="点击添加图片" src="./images/addsite.png">
+                        <!--用来替换按钮的图片
+                        -->
+                        <input type="file" multiple="multiple" id="file" name='file'
+                               style="height:0;width:0;z-index: -1;  position: absolute;left: 10px;top: 5px;"/>
+                        <!--原来按钮的样式-->
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+        <div class=" info ">
+            <form action=" " id="form">
+                <div class="form-group">
+                    <label>宝贝名称：</label>
+                    <input class="input focus" data-id="" name="goodsName" id="goodsName" type="text"
+                           this.size=(this.value.length)>
+                </div>
+                <div class="form-group">
+                    <select class="sel" name="sort" id="sort">
+                        <option value="0">选择上架区</option>
+                        <option value="0">不分区</option>
+                        <option value="1">特价区</option>
+                        <option value="2">精品区</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="price">市场参考价：</label>
+                    <input class="input" name="goodsMarketprice" id="price" type="text" size="4">
+                    <select name="unitPrice" id="unitPrice">元
+                        <option>元</option>
+                        <option>万元</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>类型：</label>
+                    <select name="firstTag" id="firstTag">请选择
+                        <option>请选择</option>
+                    </select>
+                    <select name="secondTag" id="secondTag">请选择
+                        <option value="0">请选择</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="material">材质：</label>
+                    <input class="input" name="material" id="material" type="text" size="4">
+                </div>
+                <div class="form-group">
+                    <label for="size1">尺寸：</label>
+                    <input class="input" name="size" id="size1" type="text" size="4"> *
+                    <input class="input" name="size" id="size2" type="text" size="4"> *
+                    <input class="input" name="size" id="size3" type="text" size="4">
+                    <select name="unitSize" id="unitSize">厘米
+                        <option>厘米</option>
+                        <option>米</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="weight">重量：</label>
+                    <input class="input" name="weight" id="weight" type="text" size="4">
+                    <select name="unitWeight" id="unitWeight">克
+                        <option>克</option>
+                        <option>千克</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="instr">宝贝介绍：</label>
+                    <textarea name="remark" id="instr" cols="30" rows="5"></textarea>
+                </div>
+            </form>
+            <div class="oprate ">
+                <div class="del" id="cancel">取消编辑</div>
+                <div class="edit" id="submit">提交</div>
+            </div>
+
+        </div>
+    </div>
+    <!-- 底部 -->
+    <div class="footer ">
+        <p>杭州缘之宝网络科技有限公司 版权所有</p>
+        <ul>
+            <li>
+                <a href="# ">寻宝图手机版</a> |
+                <a href="# ">官方网站</a> |
+                <a href="# ">服务协议</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!--宝贝详情展示模板-->
+<!--<script type="text/template" id="tag">-->
+<!--<select name="secondTag" id="secondTag">{{tag.tagName}}-->
+<!--<option value="0">{{tag.tagName}}</option>-->
+<!--</select>-->
+<!--</script>-->
+<!--全局-->
+<script src="./js/jquery.min.js"></script>
+<script src="./js/jquery.cookie.js"></script>
+<script src="./js/template-web.js"></script>
+<script src="./js/logout.js"></script>
+<!--本页面-->
+<script src="./assets/uploadify/jquery.uploadify.min.js"></script>
+<!--<script src="./js/goodsAdd.js"></script>-->
+<script src="./js/goodsEdit.js"></script>
+</body>
+
+</html>

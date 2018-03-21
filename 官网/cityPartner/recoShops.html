@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>城市合伙人-管理中心</title>
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html"/>
+    <![endif]-->
+
+    <link href="./static/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link rel="stylesheet" href="./static/bootstrap-table/src/bootstrap-table.css">
+    <link href="./static/css/font-awesome.css" rel="stylesheet">
+    <link href="./static/css/animate.css" rel="stylesheet">
+    <link href="./static/css/style.css?v=4.1.0" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/adminCenter.css">
+    <link rel="stylesheet" href="./css/index.css">
+
+    <style>
+        .shopDetail .table > tbody .recommend {
+            color: #999;
+        }
+    </style>
+
+    <!--兼容H5标签与媒体查询-->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
+
+<header>
+    <h1>城市合伙人-管理中心</h1>
+    <form action="">
+        <div class="form-group">
+            <div class="city">
+                <label>城市：</label>
+                <select name="province" class="selectCity">省
+                    <option value="0" class="selectedP">河南省</option>
+                </select>
+                <select name="province" class="selectCity" id="manageCity">市
+                    <!--<option value="0" class="selectedC">郑州市</option>-->
+                </select>
+                <!--<select name="province" class="selectCity">区
+                    <option value="0">请选择</option>
+                </select>-->
+            </div>
+            <div class="market">
+                <label>所在市场：</label>
+                <select name="province" class="selectCity" id="curio">所在市场
+                    <!--<option value="0">吴山古玩城</option>-->
+                </select>
+            </div>
+            <!--搜索-->
+            <!--<div class="search">-->
+            <!--<input type="text">-->
+            <!--<button>搜索</button>-->
+            <!--</div>-->
+        </div>
+    </form>
+</header>
+<!--空白-->
+<div class="row border-bottom">
+    <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0;background-color: #fff">
+    </nav>
+</div>
+<!--地址面包屑导航-->
+<div class="row content-tabs">
+    <ul id="addressCity">
+        <li class="province" id="province">河南省<span>-</span></li>
+        <li class="city" id="city">郑州市<span>-</span></li>
+        <li class="market" id="market">河南博物馆</li>
+    </ul>
+    <div class="freshen pull-right">
+        <img src="./images/freshen.png" alt="">
+        <span>刷新</span>
+    </div>
+</div>
+
+<div class="shopDetail">
+    <div class="container-fluid">
+        <div class="body user-list" id="shops">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form action="" class="form-inline">
+                        <ol class="breadcrumb">
+                            <span class="circle"></span>
+                            <li>
+                                <a href="javascript:;">店铺</a>
+                            </li>
+                            <li>推荐店铺</li>
+                        </ol>
+                    </form>
+                </div>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>店铺名称</th>
+                        <th>联系方式</th>
+                        <th>排序</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody id="shopList">
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="dataTables_paginate paging_simple_numbers pull-right" id="DataTables_Table_0_paginate">
+                <ul class="pagination">
+
+                </ul>
+            </div>
+        </div>
+        <div id="shopDetail" class="body user-list" style="display: none;">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form action="" class="form-inline">
+                        <ol class="breadcrumb">
+                            <span class="circle"></span>
+                            <li>
+                                <a href="javascript:;">店铺</a>
+                            </li>
+                            <li>推荐店铺</li>
+                            <li class="myShopName">小南的店</li>
+                            <a class="back pull-right">返回上一级</a>
+                        </ol>
+                    </form>
+                </div>
+                <div class="content">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--店铺列表模板-->
+<script type="text/template" id="myShopList">
+    {{each data}}
+    <tr>
+        <td>{{$index+1}}</td>
+        <td>{{$value.shopName}}</td>
+        <td>{{$value.shopTel}}</td>
+        <td>
+            <img class="up" src="./images/up.png" alt="">
+            <img class="down" src="./images/down.png" alt="">
+        </td>
+
+        <td class="operate">
+            <span class="recommend" data-id="{{$value.id}}">设为推荐</span>
+            <span class="closed" data-id="{{$value.id}}">关闭店铺</span>
+            <span class="details" data-id="{{$value.id}}">查看详情</span>
+        </td>
+
+    </tr>
+    {{/each}}
+</script>
+<!--店铺详情模板-->
+<script type="text/template" id="myShopDetail">
+    <div class="content-left pull-left">
+        <p>门头照片：</p>
+        <div class="door-pic">
+            <img src="{{bannerFile.url}}" alt="">
+        </div>
+        <p>店内环境：</p>
+        <div class="site-pic">
+            <ul>
+                {{each rooFileList}}
+                <li><img src="{{$value.url}}" alt=""></li>
+                {{/each}}
+            </ul>
+            <img src="#" alt="">
+        </div>
+    </div>
+    <div class="content-right pull-left">
+        <ul class="info-detail">
+            <li class="shop-name">店铺名称：{{shopName}}</li>
+            <li>联系人：{{rooMember.memberNickname}}</li>
+            <li>联系电话：{{shopTel}}</li>
+            <li>所属古玩城：{{curiocityName}}</li>
+            <li>地址：{{rooMember.areaInfo}}</li>
+            <li>楼层：{{shopFloor}}</li>
+            <li>门牌号：{{shopAddress}}</li>
+            <li>店铺简介：{{remark}}</li>
+        </ul>
+    </div>
+</script>
+
+<!-- 分页模板 -->
+<script type="text/template" id="page">
+    <li class="paginate_button previous disabled" aria-controls="DataTables_Table_0" tabindex="0"
+        id="DataTables_Table_0_previous">
+        <a href="?pageNum=<%= pageNum-1 %>">上一页</a>
+    </li>
+    <% for(var i=1; i<=pageLen; i++) { %>
+    <li class="paginate_button <% if(i == pageNum) { %> active <% }%>" aria-controls="DataTables_Table_0" tabindex="0">
+        <a href="?pageNum=<%= i %>"><%= i %></a>
+    </li>
+    <% } %>
+    <li class="paginate_button next" aria-controls="DataTables_Table_0" tabindex="0"
+        id="DataTables_Table_0_next">
+        <a href="?pageNum=<%= pageNum-0+1 %>">下一页</a>
+    </li>
+</script>
+
+<!-- 全局js -->
+<script src="./js/jquery.min.js"></script>
+<script src="./js/jquery.cookie.js"></script>
+<script src="./static/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="./static/bootstrap-table/src/bootstrap-table.js"></script>
+<script src="./static/bootstrap-table/src/locale/bootstrap-table-zh-CN.js"></script>
+<script src="./static/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="./static/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="./static/js/plugins/layer/layer.min.js"></script>
+
+<!-- 第三方插件 -->
+<script src="./static/js/plugins/pace/pace.min.js"></script>
+<script src="./js/template-web.js"></script>
+
+<!-- 自定义js -->
+<script src="./static/js/hplus.js?v=4.1.0"></script>
+<script type="text/javascript" src="./static/js/contabs.js"></script>
+<script src="./src/admin-center.js"></script>
+
+<script>
+    // 店铺列表类型-推荐/全部
+    $.cookie('recommoned',1);
+//    console.log(recommend, "recommend")
+</script>
+</body>
+
+</html>
